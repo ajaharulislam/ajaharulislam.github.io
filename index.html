@@ -18,6 +18,12 @@
 
 <body>
 
+    <!-- AUTOMATIC LAST UPDATED DATE -->
+
+    <div class="last-updated" id="last-updated">
+        Last updated: —
+    </div>
+
 <div class="container">
 
     <!-- LEFT SIDEBAR -->
@@ -290,6 +296,24 @@
 
 
 <script src="script.js"></script>
+    
+<script>
+fetch("last-updated.txt")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Date file unavailable");
+        }
+        return response.text();
+    })
+    .then(text => {
+        document.getElementById("last-updated").textContent =
+            text.trim();
+    })
+    .catch(error => {
+        console.error("Unable to load update date:", error);
+    });
+</script>
+
 </body>
 </html>
 

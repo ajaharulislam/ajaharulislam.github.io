@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Keep research interests and news on About page
         if (sectionId === "about") {
-            ["about", "research", "news"].forEach(id => {
+            ["about", "interests", "news"].forEach(id => {
                 const element = document.getElementById(id);
                 if (element) element.style.display = "block";
             });

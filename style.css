@@ -1,0 +1,205 @@
+
+/* ========================================
+   Ajaharul Islam - Academic Website
+   Main Stylesheet
+   ======================================== */
+
+:root {
+    --primary: #3154b5;
+    --text: #252525;
+    --muted: #77736f;
+    --background: #f8f7f4;
+    --border: #e0ddd8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background-color: var(--background);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.8;
+}
+
+/* Main two-column layout */
+
+.container {
+    max-width: 1150px;
+    margin: 70px auto;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 55px;
+}
+
+/* Profile sidebar */
+
+.sidebar {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.profile-photo {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+}
+
+.sidebar h1 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.position {
+    font-weight: bold;
+}
+
+.institution {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.sidebar-section {
+    border-top: 1px solid var(--border);
+    margin-top: 25px;
+    padding-top: 15px;
+}
+
+.sidebar-section h3 {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    color: var(--muted);
+    text-decoration: none;
+    margin: 7px 0;
+}
+
+.sidebar a:hover {
+    color: var(--primary);
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    font-family: Arial, sans-serif;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary);
+}
+
+/* Main content */
+
+.content {
+    min-width: 0;
+}
+
+.content p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+.section-title {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-top: 35px;
+}
+
+/* Research interest tags */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: var(--primary);
+    background: #edf0fc;
+    border: 1px solid #cbd3f5;
+    padding: 4px 12px;
+    border-radius: 2px;
+}
+
+/* News cards */
+
+.news-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* Mobile responsive layout */
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 25px auto;
+    }
+
+    .sidebar {
+        text-align: center;
+    }
+
+    .profile-photo {
+        display: block;
+        margin: auto;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+}

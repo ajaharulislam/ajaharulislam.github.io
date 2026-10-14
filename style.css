@@ -222,3 +222,17 @@ nav a.active {
     text-align: right;
 }
 
+.contact-info .sidebar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.contact-info .sidebar-item i {
+    flex-shrink: 0;
+}
+
+.contact-info .sidebar-item a {
+    display: inline;
+}
+

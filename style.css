@@ -222,6 +222,10 @@ nav a.active {
     text-align: right;
 }
 
+/* =========================================
+   SIDEBAR CONTACT INFORMATION ALIGNMENT
+   ========================================= */
+
 .contact-info .sidebar-item {
     display: flex;
     align-items: flex-start;

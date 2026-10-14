@@ -1,0 +1,38 @@
+
+name: Update Website Timestamp
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-date:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Eastern Time timestamp
+        run: |
+          TZ="America/New_York" date \
+            +"Last updated: %b %d, %Y at %I:%M %p %Z" \
+            > last-updated.txt
+
+      - name: Commit updated timestamp
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add last-updated.txt
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Automatically update website timestamp"
+            git push
+          fi

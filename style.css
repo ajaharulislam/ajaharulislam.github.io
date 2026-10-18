@@ -1,16 +1,27 @@
 
-/* ========================================
-   Ajaharul Islam - Academic Website
+/* =========================================================
+   AJAHARUL ISLAM — ACADEMIC WEBSITE
    Main Stylesheet
-   ======================================== */
+   ========================================================= */
+
+
+/* =========================================================
+   1. THEME COLORS
+   ========================================================= */
 
 :root {
     --primary: #3154b5;
     --text: #252525;
     --muted: #77736f;
-    --background: #f8f7f4;
+    --background: #f8f7f5;
     --border: #e0ddd8;
+    --icon-color: #6679b9;
 }
+
+
+/* =========================================================
+   2. GLOBAL STYLES
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -23,95 +34,261 @@ html {
 body {
     margin: 0;
     color: var(--text);
-    background-color: var(--background);
+
     font-family: Georgia, "Times New Roman", serif;
     line-height: 1.8;
+
+    /* Subtle grid background */
+    background-color: var(--background);
+
+    background-image:
+        linear-gradient(
+            rgba(100, 100, 100, 0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(100, 100, 100, 0.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
 }
 
-/* Main two-column layout */
+
+/* =========================================================
+   3. MAIN TWO-COLUMN LAYOUT
+   ========================================================= */
 
 .container {
     max-width: 1150px;
     margin: 70px auto;
     padding: 0 25px;
+
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px minmax(0, 1fr);
     gap: 55px;
 }
 
-/* Profile sidebar */
+
+/* =========================================================
+   4. PROFILE SIDEBAR
+   ========================================================= */
 
 .sidebar {
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 1.6;
 }
+
+/* Profile photograph */
 
 .profile-photo {
     width: 135px;
     height: 135px;
+
     object-fit: cover;
     border-radius: 50%;
+
     border: 3px solid var(--border);
 }
+
+/* Name */
 
 .sidebar h1 {
     font-family: Georgia, serif;
     font-size: 28px;
     line-height: 1.2;
+
     margin-bottom: 5px;
 }
 
+/* Academic position */
+
 .position {
+    font-size: 13px;
     font-weight: bold;
 }
 
+/* Institution */
+
 .institution {
+    font-size: 12px;
     color: var(--muted);
     line-height: 1.6;
 }
 
+
+/* =========================================================
+   5. SIDEBAR SECTIONS
+   ========================================================= */
+
 .sidebar-section {
     border-top: 1px solid var(--border);
+
     margin-top: 25px;
     padding-top: 15px;
 }
 
+/* Section headings */
+
 .sidebar-section h3 {
-    color: var(--muted);
+    font-family: Arial, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
+    font-weight: 600;
+
+    color: var(--muted);
+
+    letter-spacing: 1.2px;
     text-transform: uppercase;
 }
 
+/* Sidebar links */
+
 .sidebar a {
     display: block;
+
+    font-size: 12px;
     color: var(--muted);
+
     text-decoration: none;
     margin: 7px 0;
+
+    transition: color 0.2s ease;
 }
 
 .sidebar a:hover {
     color: var(--primary);
 }
 
-/* Navigation */
+
+/* =========================================================
+   6. SIDEBAR CONTACT INFORMATION
+   ========================================================= */
+
+.contact-info .sidebar-item {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+    margin: 7px 0;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Contact icons */
+
+.contact-info .sidebar-item i {
+    color: var(--icon-color);
+    font-size: 13px;
+
+    width: 16px;
+    text-align: center;
+
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Email link */
+
+.contact-info .sidebar-item a {
+    display: inline;
+
+    font-size: 12px;
+    margin: 0;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   7. SIDEBAR EDUCATION
+   ========================================================= */
+
+.education-section .education-item {
+    font-size: 12px;
+    color: var(--muted);
+
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.education-section .education-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Optional icon in Education heading */
+
+.education-section h3 i {
+    color: var(--icon-color);
+    font-size: 12px;
+
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   8. SIDEBAR ACADEMIC PROFILES
+   ========================================================= */
+
+.sidebar a.sidebar-item {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+    font-size: 12px;
+
+    margin: 7px 0;
+}
+
+/* Profile icons */
+
+.sidebar a.sidebar-item i {
+    color: var(--icon-color);
+    font-size: 13px;
+
+    width: 16px;
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+/* Profile hover effect */
+
+.sidebar a.sidebar-item:hover,
+.sidebar a.sidebar-item:hover i {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   9. MAIN NAVIGATION
+   ========================================================= */
 
 nav {
     display: flex;
     flex-wrap: wrap;
+
     gap: 25px;
+
     border-bottom: 1px solid var(--border);
     padding-bottom: 15px;
     margin-bottom: 40px;
+
     font-family: Arial, sans-serif;
 }
 
 nav a {
     color: var(--muted);
+
     text-decoration: none;
     text-transform: uppercase;
+
     letter-spacing: 1px;
     font-size: 12px;
+
+    transition: color 0.2s ease;
 }
 
 nav a:hover,
@@ -119,7 +296,10 @@ nav a.active {
     color: var(--primary);
 }
 
-/* Main content */
+
+/* =========================================================
+   10. MAIN CONTENT
+   ========================================================= */
 
 .content {
     min-width: 0;
@@ -128,59 +308,106 @@ nav a.active {
 .content p {
     font-size: 17px;
     line-height: 1.9;
+
     margin-bottom: 22px;
 }
 
+/* Section headings */
+
 .section-title {
     font-family: Arial, sans-serif;
+
     font-size: 12px;
     letter-spacing: 2px;
+
     color: var(--primary);
+
     text-transform: uppercase;
     margin-top: 35px;
 }
 
-/* Research interest tags */
+
+/* =========================================================
+   11. RESEARCH INTEREST TAGS
+   ========================================================= */
 
 .tags {
     display: flex;
     flex-wrap: wrap;
+
     gap: 8px;
 }
 
 .tag {
     font-family: Arial, sans-serif;
+
     font-size: 12px;
     color: var(--primary);
+
     background: #edf0fc;
     border: 1px solid #cbd3f5;
+
     padding: 4px 12px;
     border-radius: 2px;
 }
 
-/* News cards */
+
+/* =========================================================
+   12. NEWS CARDS
+   ========================================================= */
 
 .news-card {
     background: white;
+
     border: 1px solid var(--border);
     border-left: 3px solid var(--primary);
+
     border-radius: 4px;
+
     padding: 18px 22px;
     margin-top: 20px;
+
     font-family: Arial, sans-serif;
 }
 
 .news-card p {
     font-size: 14px;
+    line-height: 1.7;
+
     color: var(--muted);
     margin: 0;
 }
 
-/* Mobile responsive layout */
+
+/* =========================================================
+   13. AUTOMATIC LAST UPDATED TIMESTAMP
+   ========================================================= */
+
+.last-updated {
+    position: absolute;
+
+    top: 15px;
+    right: 30px;
+
+    font-family: monospace;
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+    color: #aaa6a0;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   14. RESPONSIVE DESIGN — TABLETS & MOBILE
+   ========================================================= */
 
 @media (max-width: 800px) {
+
     .container {
         grid-template-columns: 1fr;
+
         gap: 30px;
         margin: 25px auto;
     }
@@ -194,6 +421,11 @@ nav a.active {
         margin: auto;
     }
 
+    .contact-info .sidebar-item,
+    .sidebar a.sidebar-item {
+        text-align: left;
+    }
+
     nav {
         justify-content: center;
         gap: 15px;
@@ -202,41 +434,45 @@ nav a.active {
     .content p {
         font-size: 16px;
     }
+
+    .last-updated {
+        position: static;
+
+        text-align: center;
+        margin: 12px 15px;
+
+        font-size: 11px;
+    }
 }
 
 
+/* =========================================================
+   15. SMALL MOBILE SCREENS
+   ========================================================= */
 
-/* ========================================
-   AUTOMATIC LAST UPDATED TIMESTAMP
-   ======================================== */
+@media (max-width: 480px) {
 
-.last-updated {
-    position: absolute;
-    top: 15px;
-    right: 30px;
+    .container {
+        padding: 0 18px;
+    }
 
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    color: #aaa6a0;
-    text-align: right;
+    .sidebar h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .tag {
+        font-size: 11px;
+    }
 }
-
-/* =========================================
-   SIDEBAR CONTACT INFORMATION ALIGNMENT
-   ========================================= */
-
-.contact-info .sidebar-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-}
-
-.contact-info .sidebar-item i {
-    flex-shrink: 0;
-}
-
-.contact-info .sidebar-item a {
-    display: inline;
-}
-

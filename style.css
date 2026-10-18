@@ -1,13 +1,11 @@
-
-/* =========================================================
+/* ============================================================
    AJAHARUL ISLAM — ACADEMIC WEBSITE
    Main Stylesheet
-   ========================================================= */
+   ============================================================ */
 
-
-/* =========================================================
+/* ============================================================
    1. THEME COLORS
-   ========================================================= */
+   ============================================================ */
 
 :root {
     --primary: #3154b5;
@@ -18,10 +16,9 @@
     --icon-color: #6679b9;
 }
 
-
-/* =========================================================
+/* ============================================================
    2. GLOBAL STYLES
-   ========================================================= */
+   ============================================================ */
 
 * {
     box-sizing: border-box;
@@ -34,13 +31,11 @@ html {
 body {
     margin: 0;
     color: var(--text);
-
     font-family: Georgia, "Times New Roman", serif;
     line-height: 1.8;
 
     /* Subtle grid background */
     background-color: var(--background);
-
     background-image:
         linear-gradient(
             rgba(100, 100, 100, 0.045) 1px,
@@ -51,14 +46,12 @@ body {
             rgba(100, 100, 100, 0.045) 1px,
             transparent 1px
         );
-
     background-size: 40px 40px;
 }
 
-
-/* =========================================================
+/* ============================================================
    3. MAIN TWO-COLUMN LAYOUT
-   ========================================================= */
+   ============================================================ */
 
 .container {
     max-width: 1150px;
@@ -70,10 +63,9 @@ body {
     gap: 55px;
 }
 
-
-/* =========================================================
+/* ============================================================
    4. PROFILE SIDEBAR
-   ========================================================= */
+   ============================================================ */
 
 .sidebar {
     font-family: Arial, sans-serif;
@@ -82,80 +74,59 @@ body {
 }
 
 /* Profile photograph */
-
 .profile-photo {
-   display: block;
+    display: block;
     width: 135px;
     height: 135px;
-
     object-fit: cover;
     border-radius: 50%;
-
     border: 3px solid var(--border);
-   margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 /* Name */
-
 .sidebar h1 {
     font-family: Georgia, serif;
     font-size: 26px;
     line-height: 1.2;
-
     margin-bottom: 5px;
 }
 
 /* Academic position */
-
 .position {
     font-size: 13px;
     font-weight: bold;
 }
 
 /* Institution */
-
 .institution {
     font-size: 12px;
     color: var(--muted);
     line-height: 1.6;
 }
 
-
-/* =========================================================
-   5. SIDEBAR SECTIONS
-   ========================================================= */
-
+/* General sidebar sections */
 .sidebar-section {
     border-top: 1px solid var(--border);
-
     margin-top: 25px;
     padding-top: 15px;
 }
-
-/* Section headings */
 
 .sidebar-section h3 {
     font-family: Arial, sans-serif;
     font-size: 11px;
     font-weight: 600;
-
     color: var(--muted);
-
     letter-spacing: 1.2px;
     text-transform: uppercase;
 }
 
-/* Sidebar links */
-
 .sidebar a {
     display: block;
-
     font-size: 12px;
     color: var(--muted);
-
     text-decoration: none;
     margin: 7px 0;
-
     transition: color 0.2s ease;
 }
 
@@ -163,55 +134,50 @@ body {
     color: var(--primary);
 }
 
-
-/* =========================================================
-   6. SIDEBAR CONTACT INFORMATION
-   ========================================================= */
+/* ============================================================
+   5. SIDEBAR CONTACT INFORMATION
+   ============================================================ */
 
 .contact-info .sidebar-item {
     display: flex;
     align-items: flex-start;
-
     gap: 8px;
     margin: 7px 0;
-
     font-size: 13px;
     line-height: 1.6;
+    color: var(--muted);
+    font-weight: 400;
 }
-
-/* Contact icons */
 
 .contact-info .sidebar-item i {
     color: var(--icon-color);
     font-size: 13px;
-
     width: 16px;
     text-align: center;
-
     flex-shrink: 0;
     margin-top: 2px;
 }
 
-/* Email link */
-
 .contact-info .sidebar-item a {
     display: inline;
-
     font-size: 13px;
+    font-weight: 400;
     margin: 0;
-
     overflow-wrap: anywhere;
 }
 
+.contact-info .sidebar-item span {
+    color: var(--muted);
+    font-weight: 400;
+}
 
-/* =========================================================
-   7. SIDEBAR EDUCATION
-   ========================================================= */
+/* ============================================================
+   6. SIDEBAR EDUCATION
+   ============================================================ */
 
 .education-section .education-item {
     font-size: 13px;
     color: var(--muted);
-
     line-height: 1.6;
     margin-bottom: 5px;
 }
@@ -220,76 +186,66 @@ body {
     margin-bottom: 0;
 }
 
-/* Optional icon in Education heading */
-
 .education-section h3 i {
     color: var(--icon-color);
     font-size: 12px;
-
     margin-right: 5px;
 }
 
+/* ============================================================
+   7. SIDEBAR ACADEMIC PROFILES
+   ============================================================ */
 
-/* =========================================================
-   8. SIDEBAR ACADEMIC PROFILES
-   ========================================================= */
-
-.sidebar a.sidebar-item {
+.sidebar-section a.sidebar-item {
     display: flex;
     align-items: center;
-
-    gap: 8px;
+    gap: 10px;
     font-size: 13px;
-
     margin: 7px 0;
 }
 
-/* Profile icons */
-
-.sidebar a.sidebar-item i {
-    color: var(--icon-color);
-    font-size: 13px;
-
-    width: 16px;
-    text-align: center;
-
+/* Uploaded Google Scholar, INSPIRE-HEP, ORCID, arXiv images */
+.profile-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
-/* Profile hover effect */
+/* Bootstrap Icons for GitHub and LinkedIn */
+.sidebar-section a.sidebar-item i {
+    color: var(--icon-color);
+    width: 18px;
+    font-size: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
 
-.sidebar a.sidebar-item:hover,
-.sidebar a.sidebar-item:hover i {
+.sidebar-section a.sidebar-item:hover,
+.sidebar-section a.sidebar-item:hover i {
     color: var(--primary);
 }
 
-
-/* =========================================================
-   9. MAIN NAVIGATION
-   ========================================================= */
+/* ============================================================
+   8. MAIN NAVIGATION
+   ============================================================ */
 
 nav {
     display: flex;
     flex-wrap: wrap;
-
     gap: 25px;
-
     border-bottom: 1px solid var(--border);
     padding-bottom: 15px;
     margin-bottom: 40px;
-
     font-family: Arial, sans-serif;
 }
 
 nav a {
     color: var(--muted);
-
     text-decoration: none;
     text-transform: uppercase;
-
     letter-spacing: 1px;
     font-size: 12px;
-
     transition: color 0.2s ease;
 }
 
@@ -298,10 +254,9 @@ nav a.active {
     color: var(--primary);
 }
 
-
-/* =========================================================
-   10. MAIN CONTENT
-   ========================================================= */
+/* ============================================================
+   9. MAIN CONTENT AND LOADED TABS
+   ============================================================ */
 
 .content {
     min-width: 0;
@@ -310,106 +265,97 @@ nav a.active {
 .content p {
     font-size: 17px;
     line-height: 1.9;
-
     margin-bottom: 22px;
 }
 
-/* Section headings */
-
 .section-title {
     font-family: Arial, sans-serif;
-
     font-size: 12px;
     letter-spacing: 2px;
-
     color: var(--primary);
-
     text-transform: uppercase;
     margin-top: 35px;
 }
 
+/* Tab content is injected into sections in index.html.
+   Keep its typography and layout consistent with the site. */
+.content section {
+    min-width: 0;
+}
 
-/* =========================================================
-   11. RESEARCH INTEREST TAGS
-   ========================================================= */
+.content section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content section a {
+    overflow-wrap: anywhere;
+}
+
+/* ============================================================
+   10. RESEARCH INTEREST TAGS
+   ============================================================ */
 
 .tags {
     display: flex;
     flex-wrap: wrap;
-
     gap: 8px;
 }
 
 .tag {
     font-family: Arial, sans-serif;
-
     font-size: 12px;
     color: var(--primary);
-
     background: #edf0fc;
     border: 1px solid #cbd3f5;
-
     padding: 4px 12px;
     border-radius: 2px;
 }
 
-
-/* =========================================================
-   12. NEWS CARDS
-   ========================================================= */
+/* ============================================================
+   11. NEWS CARDS
+   ============================================================ */
 
 .news-card {
     background: white;
-
     border: 1px solid var(--border);
     border-left: 3px solid var(--primary);
-
     border-radius: 4px;
-
     padding: 18px 22px;
     margin-top: 20px;
-
     font-family: Arial, sans-serif;
 }
 
 .news-card p {
     font-size: 14px;
     line-height: 1.7;
-
     color: var(--muted);
     margin: 0;
 }
 
-
-/* =========================================================
-   13. AUTOMATIC LAST UPDATED TIMESTAMP
-   ========================================================= */
+/* ============================================================
+   12. AUTOMATIC LAST-UPDATED TIMESTAMP
+   ============================================================ */
 
 .last-updated {
     position: absolute;
-
     top: 15px;
     right: 30px;
-
     font-family: monospace;
     font-size: 12px;
-
     letter-spacing: 0.5px;
     color: #aaa6a0;
-
     text-align: right;
 }
 
+/* ============================================================
+   13. RESPONSIVE DESIGN
+   ============================================================ */
 
-/* =========================================================
-   14. RESPONSIVE DESIGN — TABLETS & MOBILE
-   ========================================================= */
-
+/* Tablets and smaller screens */
 @media (max-width: 800px) {
-
     .container {
         grid-template-columns: 1fr;
-
         gap: 30px;
         margin: 25px auto;
     }
@@ -420,11 +366,12 @@ nav a.active {
 
     .profile-photo {
         display: block;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .contact-info .sidebar-item,
-    .sidebar a.sidebar-item {
+    .sidebar-section a.sidebar-item {
         text-align: left;
     }
 
@@ -439,21 +386,14 @@ nav a.active {
 
     .last-updated {
         position: static;
-
         text-align: center;
         margin: 12px 15px;
-
         font-size: 11px;
     }
 }
 
-
-/* =========================================================
-   15. SMALL MOBILE SCREENS
-   ========================================================= */
-
+/* Small mobile screens */
 @media (max-width: 480px) {
-
     .container {
         padding: 0 18px;
     }
@@ -477,46 +417,4 @@ nav a.active {
     .tag {
         font-size: 11px;
     }
-}
-
-/* ==========================================
-   ACADEMIC PROFILE ICON ALIGNMENT
-   ========================================== */
-
-.sidebar-section a.sidebar-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.profile-icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.sidebar-section a.sidebar-item i {
-    width: 18px;
-    font-size: 18px;
-    flex-shrink: 0;
-    text-align: center;
-}
-
-/* ==========================================
-   SIDEBAR CONTACT TEXT CONSISTENCY
-   ========================================== */
-
-.contact-info .sidebar-item {
-    color: var(--muted);
-    font-weight: normal;
-}
-
-.contact-info .sidebar-item span {
-    color: var(--muted);
-    font-weight: 400;
-}
-
-.contact-info .sidebar-item i {
-    color: #667bc6;
 }

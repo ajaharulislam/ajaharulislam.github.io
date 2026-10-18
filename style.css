@@ -502,3 +502,21 @@ nav a.active {
     flex-shrink: 0;
     text-align: center;
 }
+
+/* ==========================================
+   SIDEBAR CONTACT TEXT CONSISTENCY
+   ========================================== */
+
+.contact-info .sidebar-item {
+    color: var(--muted);
+    font-weight: normal;
+}
+
+.contact-info .sidebar-item span {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.contact-info .sidebar-item i {
+    color: #667bc6;
+}

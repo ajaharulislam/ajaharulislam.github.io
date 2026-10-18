@@ -478,3 +478,27 @@ nav a.active {
         font-size: 11px;
     }
 }
+
+/* ==========================================
+   ACADEMIC PROFILE ICON ALIGNMENT
+   ========================================== */
+
+.sidebar-section a.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.sidebar-section a.sidebar-item i {
+    width: 18px;
+    font-size: 18px;
+    flex-shrink: 0;
+    text-align: center;
+}

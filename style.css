@@ -77,13 +77,14 @@ body {
 
 .sidebar {
     font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.6;
 }
 
 /* Profile photograph */
 
 .profile-photo {
+   display: block;
     width: 135px;
     height: 135px;
 
@@ -91,13 +92,14 @@ body {
     border-radius: 50%;
 
     border: 3px solid var(--border);
+   margin-bottom: 15px;
 }
 
 /* Name */
 
 .sidebar h1 {
     font-family: Georgia, serif;
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1.2;
 
     margin-bottom: 5px;
@@ -173,7 +175,7 @@ body {
     gap: 8px;
     margin: 7px 0;
 
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.6;
 }
 
@@ -195,7 +197,7 @@ body {
 .contact-info .sidebar-item a {
     display: inline;
 
-    font-size: 12px;
+    font-size: 13px;
     margin: 0;
 
     overflow-wrap: anywhere;
@@ -207,7 +209,7 @@ body {
    ========================================================= */
 
 .education-section .education-item {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--muted);
 
     line-height: 1.6;
@@ -237,7 +239,7 @@ body {
     align-items: center;
 
     gap: 8px;
-    font-size: 12px;
+    font-size: 13px;
 
     margin: 7px 0;
 }

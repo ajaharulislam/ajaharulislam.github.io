@@ -54,13 +54,13 @@ body {
    ============================================================ */
 
 .container {
-    max-width: 1150px;
+    max-width: 1500px;
     margin: 70px auto;
     padding: 0 25px;
 
     display: grid;
     grid-template-columns: 260px minmax(0, 1fr);
-    gap: 55px;
+    gap: 45px;
 }
 
 /* ============================================================
@@ -71,6 +71,12 @@ body {
     font-family: Arial, sans-serif;
     font-size: 13px;
     line-height: 1.6;
+    position: sticky;
+    top: 22px;
+    align-self: start;
+    max-height: calc(100vh - 44px);
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 /* Profile photograph */
@@ -340,7 +346,7 @@ nav a.active {
 .last-updated {
     position: absolute;
     top: 15px;
-    right: max(25px, calc((100% - 1150px) / 2 + 25px));
+    right: max(25px, calc((100% - 1500px) / 2 + 25px));
     font-family: monospace;
     font-size: 12px;
     letter-spacing: 0.5px;
@@ -348,8 +354,187 @@ nav a.active {
     text-align: right;
 }
 
+
 /* ============================================================
-   13. RESPONSIVE DESIGN
+   13. RESEARCH PAGE — OVERVIEW AND SECTION HEADINGS
+   ============================================================ */
+
+.research-page {
+    min-width: 0;
+    width: 100%;
+}
+
+.research-overview {
+    margin-bottom: 45px;
+}
+
+.research-overview h2 {
+    margin: 0 0 18px;
+    font-size: 23px;
+    line-height: 1.35;
+}
+
+.research-page p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0 0 16px;
+}
+
+.research-item {
+    padding: 30px 0 36px;
+    border-top: 1px solid var(--border);
+}
+
+.research-item h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0 0 22px;
+}
+
+.research-number {
+    font-family: Arial, sans-serif;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-right: 10px;
+}
+
+/* ============================================================
+   14. RESEARCH PAGE — FIGURE / TEXT / FIGURE LAYOUT
+   ============================================================ */
+
+.research-three-column {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr) minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.research-three-column > * {
+    min-width: 0;
+}
+
+.research-figure,
+.research-overview-figure,
+.research-bottom-figure {
+    margin: 0;
+    min-width: 0;
+}
+
+.research-figure img,
+.research-overview-figure img,
+.research-bottom-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+}
+
+.research-figure figcaption,
+.research-overview-figure figcaption,
+.research-bottom-figure figcaption {
+    margin-top: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.research-figure-source a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.research-figure-source a:hover {
+    text-decoration: underline;
+}
+
+.research-description p {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.research-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.research-keywords span {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    line-height: 1.5;
+    color: var(--primary);
+    background: #edf0fc;
+    border: 1px solid #cbd3f5;
+    border-radius: 2px;
+    padding: 3px 7px;
+}
+
+/* Overview: one large image below the introductory paragraphs. */
+.research-overview-figure {
+    max-width: 780px;
+    margin: 24px auto 0;
+}
+
+/* Section 02: one image below the text. */
+.research-bottom-figure {
+    max-width: 780px;
+    margin: 22px auto 0;
+}
+
+/* ============================================================
+   15. RESEARCH PAGE — RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1150px) {
+    .research-three-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .research-three-column .research-description {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 650px) {
+    .research-three-column {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .research-three-column .research-description {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .research-overview h2 {
+        font-size: 21px;
+    }
+
+    .research-item h3 {
+        font-size: 18px;
+    }
+
+    .research-page p,
+    .research-description p {
+        font-size: 15px;
+    }
+}
+
+/* ============================================================
+   16. RESPONSIVE DESIGN
    ============================================================ */
 
 /* Tablets and smaller screens */
@@ -361,6 +546,9 @@ nav a.active {
     }
 
     .sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
         text-align: center;
     }
 

@@ -54,7 +54,7 @@ body {
    ============================================================ */
 
 .container {
-    max-width: 1500px;
+    max-width: 1250px;
     margin: 70px auto;
     padding: 0 25px;
 
@@ -490,6 +490,35 @@ nav a.active {
 .research-bottom-figure {
     max-width: 780px;
     margin: 22px auto 0;
+}
+
+/* Compact research layout */
+
+.research-three-column {
+    grid-template-columns: minmax(0, 0.9fr)
+                           minmax(0, 1.2fr)
+                           minmax(0, 0.9fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.research-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.research-overview-figure {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.research-bottom-figure {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ============================================================

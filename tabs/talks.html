@@ -1,4 +1,694 @@
-<!-- TALKS -->
-<h2 class="section-title">Talks and Presentations</h2>
 
-<p>Talks and presentations will be added here.</p>
+<!-- =========================================================
+     TALKS AND PRESENTATIONS TAB
+     File: tabs/talks.html
+     ========================================================= -->
+
+<style>
+  /* =====================================================
+     TALKS PAGE
+     ===================================================== */
+
+  .talks-page {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #292929;
+    width: 100%;
+  }
+
+  .talks-page * {
+    box-sizing: border-box;
+  }
+
+  /* =====================================================
+     FILTER BUTTONS
+     ===================================================== */
+
+  .talk-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 35px;
+  }
+
+  .talk-filter {
+    cursor: pointer;
+    background: #edf0fc;
+    border: 1px solid #cbd3f5;
+    color: #3154b5;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .talk-filter:hover {
+    background: #dce4ff;
+    border-color: #3154b5;
+  }
+
+  .talk-filter.is-active {
+    background: #3154b5;
+    border-color: #3154b5;
+    color: #ffffff;
+  }
+
+  /* =====================================================
+     PRESENTATION TIMELINE
+     ===================================================== */
+
+  .talk-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .talk-entry {
+    display: grid;
+    grid-template-columns: 85px minmax(0, 1fr);
+    column-gap: 20px;
+    padding: 20px 0 22px;
+    border-bottom: 1px solid #dcdad6;
+  }
+
+  .talk-entry:first-child {
+    padding-top: 8px;
+  }
+
+  .talk-date {
+    font-family: monospace;
+    font-size: 12px;
+    color: #77736f;
+    padding-top: 3px;
+    white-space: nowrap;
+  }
+
+  .talk-content {
+    min-width: 0;
+  }
+
+  /* =====================================================
+     CATEGORY LABELS
+     ===================================================== */
+
+  .talk-category {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-bottom: 9px;
+    border: 1px solid;
+    border-radius: 2px;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .talk-category.contributed {
+    color: #3154b5;
+    background: #edf0fc;
+    border-color: #b9c9ff;
+  }
+
+  .talk-category.seminar {
+    color: #746b60;
+    background: #f3f0ec;
+    border-color: #ded7ce;
+  }
+
+  .talk-category.poster {
+    color: #168044;
+    background: #eaf7ee;
+    border-color: #b9e2c6;
+  }
+
+  /* =====================================================
+     TITLE AND EVENT DETAILS
+     ===================================================== */
+
+  .talks-page .talk-title {
+    margin: 0 0 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #252525;
+  }
+
+  .talks-page .talk-event {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #292929;
+  }
+
+  .talk-event a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted #a6a6a6;
+  }
+
+  .talk-event a:hover {
+    color: #3154b5;
+    border-bottom-color: #3154b5;
+  }
+
+  .talk-location {
+    color: #77736f;
+  }
+
+  /* Hide filtered entries */
+  .talks-page [hidden] {
+    display: none !important;
+  }
+
+  /* =====================================================
+     RESPONSIVE DESIGN
+     ===================================================== */
+
+  @media (max-width: 600px) {
+    .talk-entry {
+      grid-template-columns: 65px minmax(0, 1fr);
+      column-gap: 12px;
+    }
+
+    .talk-date {
+      font-size: 11px;
+    }
+
+    .talks-page .talk-title {
+      font-size: 14px;
+    }
+
+    .talks-page .talk-event {
+      font-size: 12px;
+    }
+  }
+</style>
+
+
+<div class="talks-page" id="talks-page">
+
+  <!-- =====================================================
+       FILTER BUTTONS
+       ===================================================== -->
+
+  <div class="talk-filters"
+       role="group"
+       aria-label="Filter talks and presentations">
+
+    <button class="talk-filter is-active"
+            type="button"
+            data-talk-filter="all"
+            aria-pressed="true">
+      All
+    </button>
+
+    <button class="talk-filter"
+            type="button"
+            data-talk-filter="contributed"
+            aria-pressed="false">
+      Contributed Talk
+    </button>
+
+    <button class="talk-filter"
+            type="button"
+            data-talk-filter="seminar"
+            aria-pressed="false">
+      Seminar
+    </button>
+
+    <button class="talk-filter"
+            type="button"
+            data-talk-filter="poster"
+            aria-pressed="false">
+      Poster
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       ALL TALKS AND PRESENTATIONS
+       Newest first
+       ===================================================== -->
+
+  <div class="talk-list">
+
+
+    <!-- =====================================================
+         POSTER: QPT 2025
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2025.10</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          Diffractive Production of Heavy Quarkonia
+          at the Electron Ion Collider
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.ihep.ac.cn/event/25521/abstracts/13508/"
+             target="_blank" rel="noopener noreferrer">
+            16th Workshop on QCD Phase Transition and
+            Relativistic Heavy-Ion Physics (QPT2025)
+          </a>,
+          24–28 October 2025,
+          <span class="talk-location">Guilin, China</span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         POSTER: SHANGHAI 2025
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2025.04</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium suppression in pNRQCD
+          and open quantum system approach
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.ihep.ac.cn/event/23976/registrations/participants"
+             target="_blank" rel="noopener noreferrer">
+            20th National Conference on Intermediate
+            and High Energy Nuclear Physics
+          </a>,
+          24–28 April 2025,
+          <span class="talk-location">Shanghai, China</span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         CONTRIBUTED TALK: CONFINEMENT XVI
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="contributed">
+
+      <div class="talk-date">2024.08</div>
+
+      <div class="talk-content">
+        <span class="talk-category contributed">
+          Contributed Talk
+        </span>
+
+        <h3 class="talk-title">
+          Bottomonium suppression in pNRQCD
+          and open quantum system approach
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.cern.ch/event/1293041/contributions/5936477/"
+             target="_blank" rel="noopener noreferrer">
+            Confinement XVI
+          </a>,
+          18–24 August 2024,
+          <span class="talk-location">
+            Cairns, Queensland, Australia
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         SEMINAR: GLUON SATURATION AT EIC
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="seminar">
+
+      <div class="talk-date">2023.10</div>
+
+      <div class="talk-content">
+        <span class="talk-category seminar">Seminar</span>
+
+        <h3 class="talk-title">
+          Gluon saturation at Electron-Ion Collider (EIC)
+        </h3>
+
+        <p class="talk-event">
+          Center for Nuclear Research (CNR),
+          31 October 2023,
+          <span class="talk-location">
+            Kent State University, Ohio, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         CONTRIBUTED TALK: HOT QUARKS 2022
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="contributed">
+
+      <div class="talk-date">2022.10</div>
+
+      <div class="talk-content">
+        <span class="talk-category contributed">
+          Contributed Talk
+        </span>
+
+        <h3 class="talk-title">
+          The complex heavy-quark potential in an
+          anisotropic quark-gluon plasma —
+          Statics and dynamics
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.bnl.gov/event/7770/"
+             target="_blank" rel="noopener noreferrer">
+            Hot Quarks 2022
+          </a>,
+          12–18 October 2022,
+          <span class="talk-location">
+            Estes Park, Colorado, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         CONTRIBUTED TALK: CONFINEMENT XV
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="contributed">
+
+      <div class="talk-date">2022.08</div>
+
+      <div class="talk-content">
+        <span class="talk-category contributed">
+          Contributed Talk
+        </span>
+
+        <h3 class="talk-title">
+          The complex heavy-quark potential in an
+          anisotropic quark-gluon plasma —
+          Statics and dynamics
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.uis.no/event/2/contributions/611/"
+             target="_blank" rel="noopener noreferrer">
+            Confinement XV
+          </a>,
+          1–6 August 2022,
+          <span class="talk-location">
+            University of Stavanger, Norway
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         POSTER: XQCD 2022
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2022.07</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          The complex heavy-quark potential in an
+          anisotropic quark-gluon plasma —
+          Statics and dynamics
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.cern.ch/event/832600/"
+             target="_blank" rel="noopener noreferrer">
+            XQCD 2022
+          </a>,
+          27–29 July 2022,
+          <span class="talk-location">
+            NTNU, Trondheim, Norway
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         POSTER: NNPSS 2022
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2022.07</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium dynamics at next-to-leading
+          order in the binding energy over temperature
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://web.mit.edu/2022nnpss/participants.html"
+             target="_blank" rel="noopener noreferrer">
+            NNPSS 2022
+          </a>,
+          11–22 July 2022,
+          <span class="talk-location">
+            Massachusetts Institute of Technology,
+            Cambridge, Massachusetts, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         POSTER: SQM 2022
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2022.06</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium dynamics at next-to-leading
+          order in the binding energy over temperature
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.cern.ch/event/1037821/contributions/4842906/"
+             target="_blank" rel="noopener noreferrer">
+            Strangeness in Quark Matter (SQM 2022)
+          </a>,
+          13–17 June 2022,
+          <span class="talk-location">
+            Busan, Republic of Korea
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         CONTRIBUTED TALK: APS APRIL 2022
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="contributed">
+
+      <div class="talk-date">2022.04</div>
+
+      <div class="talk-content">
+        <span class="talk-category contributed">
+          Contributed Talk
+        </span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium dynamics at next-to-leading
+          order in the binding energy over temperature
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://meetings.aps.org/Meeting/APR22/Session/X12.1"
+             target="_blank" rel="noopener noreferrer">
+            APS April Meeting 2022
+          </a>,
+          12 April 2022,
+          <span class="talk-location">
+            New York, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         SEMINAR: EFFECTIVE DEBYE SCREENING MASS
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="seminar">
+
+      <div class="talk-date">2021.10</div>
+
+      <div class="talk-content">
+        <span class="talk-category seminar">Seminar</span>
+
+        <h3 class="talk-title">
+          Effective Debye Screening Mass in an
+          Anisotropic Quark Gluon Plasma
+        </h3>
+
+        <p class="talk-event">
+          Center for Nuclear Research (CNR),
+          20 October 2021,
+          <span class="talk-location">
+            Kent State University, Ohio, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         CONTRIBUTED TALK: APS APRIL 2021
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="contributed">
+
+      <div class="talk-date">2021.04</div>
+
+      <div class="talk-content">
+        <span class="talk-category contributed">
+          Contributed Talk
+        </span>
+
+        <h3 class="talk-title">
+          Bottomonium suppression and elliptic flow
+          using Heavy Quarkonium Quantum Dynamics
+        </h3>
+
+        <p class="talk-event">
+          <a href="http://meetings.aps.org/Meeting/APR21/Session/Y14.1"
+             target="_blank" rel="noopener noreferrer">
+            APS April Meeting 2021
+          </a>,
+          20 April 2021
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         CONTRIBUTED TALK: APS APRIL 2020
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="contributed">
+
+      <div class="talk-date">2020.04</div>
+
+      <div class="talk-content">
+        <span class="talk-category contributed">
+          Contributed Talk
+        </span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium suppression beyond
+          the adiabatic limit
+        </h3>
+
+        <p class="talk-event">
+          <a href="http://meetings.aps.org/Meeting/APR20/Session/Q18.1"
+             target="_blank" rel="noopener noreferrer">
+            APS April Meeting 2020
+          </a>,
+          20 April 2020,
+          <span class="talk-location">
+            Washington, DC, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         POSTER: HARD PROBES 2020
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2020</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium suppression beyond
+          the adiabatic limit
+        </h3>
+
+        <p class="talk-event">
+          <a href="https://indico.cern.ch/event/751767/contributions/3867399/"
+             target="_blank" rel="noopener noreferrer">
+            Hard Probes 2020
+          </a>,
+          <span class="talk-location">
+            University of Texas at Austin, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         POSTER: NNPSS 2019
+         ===================================================== -->
+
+    <article class="talk-entry" data-talk-type="poster">
+
+      <div class="talk-date">2019</div>
+
+      <div class="talk-content">
+        <span class="talk-category poster">Poster</span>
+
+        <h3 class="talk-title">
+          Heavy quarkonium suppression beyond
+          the adiabatic limit
+        </h3>
+
+        <p class="talk-event">
+          <a href="http://www.phys.utk.edu/nnpss-2019/index.html"
+             target="_blank" rel="noopener noreferrer">
+            NNPSS 2019
+          </a>,
+          <span class="talk-location">
+            University of Tennessee, USA
+          </span>
+        </p>
+      </div>
+    </article>
+
+
+  </div>
+</div>

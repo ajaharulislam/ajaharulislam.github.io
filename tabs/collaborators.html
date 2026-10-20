@@ -1,22 +1,395 @@
 
-<!-- ==========================================
+<!-- =========================================================
+     COLLABORATORS TAB
+     File: tabs/collaborators.html
+     ========================================================= -->
+
+<style>
+
+  /* =====================================================
+     COLLABORATORS PAGE
+     ===================================================== */
+
+  .collaborators-page {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #292929;
+  }
+
+  .collaborators-page * {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     SECTION HEADING
+     ===================================================== */
+
+  .collaborators-page .collaborators-heading {
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dcdad6;
+    color: #3154b5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+
+  /* =====================================================
+     INTRODUCTORY PARAGRAPH
+     ===================================================== */
+
+  .collaborators-page .collaborators-intro {
+    margin: 0 0 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #555555;
+  }
+
+
+  /* =====================================================
+     COLLABORATORS LIST
+     ===================================================== */
+
+  .collaborators-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collaborator-entry {
+    display: grid;
+    grid-template-columns: 10px minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 23px 0;
+    border-bottom: 1px solid #dcdad6;
+  }
+
+  .collaborator-entry:first-child {
+    padding-top: 10px;
+  }
+
+  .collaborator-bullet {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background: #3154b5;
+  }
+
+  .collaborator-content {
+    min-width: 0;
+  }
+
+
+  /* =====================================================
+     NAME AND AFFILIATION
+     ===================================================== */
+
+  .collaborators-page .collaborator-name {
+    margin: 0 0 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #252525;
+  }
+
+  .collaborators-page .collaborator-affiliation {
+    margin: 0 0 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #77736f;
+  }
+
+
+  /* =====================================================
+     INSPIRE-HEP PROFILE LINK
+     ===================================================== */
+
+  .collaborator-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .collaborator-inspire {
+    display: inline-block;
+    padding: 5px 9px;
+    background: #edf0fc;
+    border: 1px solid #cbd3f5;
+    border-radius: 3px;
+    color: #3154b5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease,
+                border-color 0.2s ease;
+  }
+
+  .collaborator-inspire:hover {
+    background: #dce4ff;
+    border-color: #3154b5;
+    color: #3154b5;
+  }
+
+
+  /* =====================================================
+     RESPONSIVE DESIGN
+     ===================================================== */
+
+  @media (max-width: 600px) {
+
+    .collaborator-entry {
+      grid-template-columns: 10px minmax(0, 1fr);
+      column-gap: 12px;
+      padding: 18px 0;
+    }
+
+    .collaborators-page .collaborators-intro {
+      font-size: 13px;
+    }
+
+    .collaborators-page .collaborator-name {
+      font-size: 15px;
+    }
+
+    .collaborators-page .collaborator-affiliation {
+      font-size: 12px;
+    }
+
+  }
+
+</style>
+
+
+<!-- =========================================================
      BEGIN: COLLABORATORS
-========================================== -->
+     ========================================================= -->
 
-<section id="collaborators">
+<section class="collaborators-page" id="collaborators">
 
-    <h2 class="section-title">Collaborators</h2>
+  <!-- =====================================================
+       SECTION HEADING
+       ===================================================== -->
 
-    <p>
-        I have had the opportunity to collaborate with
-        researchers from various institutions on topics
-        in theoretical and computational nuclear physics.
-    </p>
+  <h2 class="collaborators-heading">
+    Collaborators
+  </h2>
 
-    <!-- Collaborator entries will be added here -->
+
+  <!-- =====================================================
+       INTRODUCTION
+       ===================================================== -->
+
+  <p class="collaborators-intro">
+    I have had the opportunity to collaborate with researchers
+    from various institutions around the world on topics in theoretical, 
+    phenomenological, and computational high-energy nuclear physics.
+    In addition, I explore applications of machine learning and quantum computing 
+    to investigate these phenomena.
+  </p>
+
+
+  <!-- =====================================================
+       COLLABORATORS LIST
+       ===================================================== -->
+
+  <div class="collaborators-list">
+
+
+    <!-- =====================================================
+         MICHAEL STRICKLAND
+         ===================================================== -->
+
+    <article class="collaborator-entry">
+
+      <span class="collaborator-bullet" aria-hidden="true"></span>
+
+      <div class="collaborator-content">
+
+        <h3 class="collaborator-name">
+          Prof. Michael Strickland
+        </h3>
+
+        <p class="collaborator-affiliation">
+          Retired Professor and Ex-Chair,
+          Department of Physics,
+          Kent State University, USA
+        </p>
+
+        <div class="collaborator-links">
+
+          <a class="collaborator-inspire"
+             href="https://inspirehep.net/authors/987363"
+             target="_blank"
+             rel="noopener noreferrer">
+            INSPIRE-HEP Profile &rarr;
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         NORA BRAMBILLA
+         ===================================================== -->
+
+    <article class="collaborator-entry">
+
+      <span class="collaborator-bullet" aria-hidden="true"></span>
+
+      <div class="collaborator-content">
+
+        <h3 class="collaborator-name">
+          Prof. Nora Brambilla
+        </h3>
+
+        <p class="collaborator-affiliation">
+          Professor,
+          Department of Physics,
+          Technical University of Munich, Germany
+        </p>
+
+        <div class="collaborator-links">
+
+          <a class="collaborator-inspire"
+             href="https://inspirehep.net/authors/1015461"
+             target="_blank"
+             rel="noopener noreferrer">
+            INSPIRE-HEP Profile &rarr;
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         ANTONIO VAIRO
+         ===================================================== -->
+
+    <article class="collaborator-entry">
+
+      <span class="collaborator-bullet" aria-hidden="true"></span>
+
+      <div class="collaborator-content">
+
+        <h3 class="collaborator-name">
+          Prof. Antonio Vairo
+        </h3>
+
+        <p class="collaborator-affiliation">
+          Professor,
+          Department of Physics,
+          Technical University of Munich, Germany
+        </p>
+
+        <div class="collaborator-links">
+
+          <a class="collaborator-inspire"
+             href="https://inspirehep.net/authors/985107"
+             target="_blank"
+             rel="noopener noreferrer">
+            INSPIRE-HEP Profile &rarr;
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         YUN GUO
+         ===================================================== -->
+
+    <article class="collaborator-entry">
+
+      <span class="collaborator-bullet" aria-hidden="true"></span>
+
+      <div class="collaborator-content">
+
+        <h3 class="collaborator-name">
+          Prof. Yun Guo
+        </h3>
+
+        <p class="collaborator-affiliation">
+          Professor,
+          Department of Physics,
+          Guangxi Normal University, China
+        </p>
+
+        <div class="collaborator-links">
+
+          <a class="collaborator-inspire"
+             href="https://inspirehep.net/authors/1756688"
+             target="_blank"
+             rel="noopener noreferrer">
+            INSPIRE-HEP Profile &rarr;
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         SANTOSH KUMAR DAS
+         ===================================================== -->
+
+    <article class="collaborator-entry">
+
+      <span class="collaborator-bullet" aria-hidden="true"></span>
+
+      <div class="collaborator-content">
+
+        <h3 class="collaborator-name">
+          Prof. Santosh Kumar Das
+        </h3>
+
+        <p class="collaborator-affiliation">
+          Professor,
+          School of Physical Sciences,
+          Indian Institute of Technology Goa, India
+        </p>
+
+        <div class="collaborator-links">
+
+          <a class="collaborator-inspire"
+             href="https://inspirehep.net/authors/1071576"
+             target="_blank"
+             rel="noopener noreferrer">
+            INSPIRE-HEP Profile &rarr;
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
 
 </section>
 
-<!-- ==========================================
+<!-- =========================================================
      END: COLLABORATORS
-========================================== -->
+     ========================================================= -->

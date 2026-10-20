@@ -206,3 +206,37 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ==========================================================
    END: DOCUMENT INITIALIZATION
    ========================================================== */
+
+/* =====================================================
+   BEGIN: PUBLICATIONS FILTER
+   ===================================================== */
+
+document.addEventListener("click", function (event) {
+  const button = event.target.closest(
+    "#publications-page [data-pub-filter]"
+  );
+
+  if (!button) return;
+
+  const page = button.closest("#publications-page");
+  const selected = button.dataset.pubFilter;
+
+  // Update active filter button
+  page.querySelectorAll("[data-pub-filter]").forEach(function (item) {
+    const active = item === button;
+
+    item.classList.toggle("is-active", active);
+    item.setAttribute("aria-pressed", String(active));
+  });
+
+  // Show only the selected publication section
+  page.querySelectorAll("[data-pub-group]").forEach(function (group) {
+    group.hidden =
+      selected !== "all" &&
+      group.dataset.pubGroup !== selected;
+  });
+});
+
+/* =====================================================
+   END: PUBLICATIONS FILTER
+   ===================================================== */

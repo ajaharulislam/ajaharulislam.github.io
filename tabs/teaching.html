@@ -1,4 +1,434 @@
-<!-- TEACHING -->
-<h2 class="section-title">Teaching</h2>
 
-<p>Teaching information will be added here.</p>
+<!-- =========================================================
+     TEACHING TAB
+     File: tabs/teaching.html
+     ========================================================= -->
+
+<style>
+  /* =====================================================
+     TEACHING PAGE
+     ===================================================== */
+
+  .teaching-page {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #292929;
+  }
+
+  .teaching-page * {
+    box-sizing: border-box;
+  }
+
+  /* =====================================================
+     SECTION HEADING
+     ===================================================== */
+
+  .teaching-page .teaching-heading {
+    margin: 0 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dcdad6;
+    color: #3154b5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  /* =====================================================
+     TEACHING ENTRIES
+     ===================================================== */
+
+  .teaching-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .teaching-entry {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    column-gap: 20px;
+    padding: 22px 0 25px;
+    border-bottom: 1px solid #dcdad6;
+  }
+
+  .teaching-entry:first-child {
+    padding-top: 0;
+  }
+
+  .teaching-date {
+    padding-top: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #77736f;
+  }
+
+  .teaching-content {
+    min-width: 0;
+  }
+
+  /* =====================================================
+     ROLE LABELS
+     ===================================================== */
+
+  .teaching-role {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 4px 8px;
+    border: 1px solid #b9c9ff;
+    border-radius: 2px;
+    background: #edf0fc;
+    color: #3154b5;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .teaching-role.assistant {
+    background: #f3f0ec;
+    border-color: #ded7ce;
+    color: #746b60;
+  }
+
+  /* =====================================================
+     COURSE TITLE AND INSTITUTION
+     ===================================================== */
+
+  .teaching-page .teaching-title {
+    margin: 0 0 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #252525;
+  }
+
+  .teaching-page .teaching-institution {
+    margin: 0 0 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #77736f;
+  }
+
+  /* =====================================================
+     RESPONSIBILITIES
+     ===================================================== */
+
+  .teaching-page .teaching-details {
+    margin: 0;
+    padding-left: 19px;
+    list-style-type: disc;
+  }
+
+  .teaching-page .teaching-details li {
+    margin-bottom: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #333333;
+  }
+
+  .teaching-page .teaching-details li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* =====================================================
+     RESPONSIVE DESIGN
+     ===================================================== */
+
+  @media (max-width: 600px) {
+
+    .teaching-entry {
+      grid-template-columns: 1fr;
+      row-gap: 9px;
+    }
+
+    .teaching-date {
+      padding-top: 0;
+    }
+
+    .teaching-page .teaching-title {
+      font-size: 14px;
+    }
+
+    .teaching-page .teaching-institution,
+    .teaching-page .teaching-details li {
+      font-size: 12px;
+    }
+  }
+</style>
+
+
+<!-- =====================================================
+     TEACHING EXPERIENCE
+     ===================================================== -->
+
+<div class="teaching-page" id="teaching-page">
+
+  <h2 class="teaching-heading">Teaching Experience</h2>
+
+  <div class="teaching-list">
+
+
+    <!-- =====================================================
+         INSTRUCTOR: SCATTERING CROSS-SECTIONS
+         ===================================================== -->
+
+    <article class="teaching-entry">
+
+      <div class="teaching-date">
+        Spring 2025<br>
+        Fall 2025
+      </div>
+
+      <div class="teaching-content">
+
+        <span class="teaching-role">Instructor</span>
+
+        <h3 class="teaching-title">
+          Scattering Cross-Sections in
+          Ultra-Relativistic Heavy-Ion Collisions
+        </h3>
+
+        <p class="teaching-institution">
+          Institute of Particle Physics,
+          Central China Normal University,
+          Wuhan, China
+        </p>
+
+        <ul class="teaching-details">
+
+          <li>
+            Taught an advanced graduate-level course to
+            approximately 20 Ph.D. and Master's students,
+            covering relativistic quantum mechanics,
+            quantum field theory, Feynman diagrams,
+            scattering amplitudes, and cross-section
+            calculations.
+          </li>
+
+          <li>
+            Developed course materials, homework
+            assignments, and detailed solutions,
+            guiding students through scattering-amplitude
+            and cross-section calculations with applications
+            to high-energy and heavy-ion physics.
+          </li>
+
+        </ul>
+
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         TEACHING ASSISTANT / GRADER: PHY 11030
+         ===================================================== -->
+
+    <article class="teaching-entry">
+
+      <div class="teaching-date">
+        Fall 2023
+      </div>
+
+      <div class="teaching-content">
+
+        <span class="teaching-role assistant">
+          Teaching Assistant / Grader
+        </span>
+
+        <h3 class="teaching-title">
+          Seven Ideas That Shook the Universe
+          (PHY 11030)
+        </h3>
+
+        <p class="teaching-institution">
+          Department of Physics,
+          Kent State University,
+          Ohio, USA<br>
+          October 16 – December 10, 2023
+        </p>
+
+        <ul class="teaching-details">
+
+          <li>
+            Supported a large-enrollment undergraduate
+            course of approximately 300 students
+            introducing major revolutionary concepts
+            in physics and their implications for
+            understanding the physical universe.
+          </li>
+
+          <li>
+            Used Canvas, Kent State University's
+            learning-management system, to grade and
+            manage quizzes, discussion assignments,
+            and homework, supporting timely and
+            consistent assessment across the course.
+          </li>
+
+        </ul>
+
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         INSTRUCTOR: COLLEGE PHYSICS II
+         ===================================================== -->
+
+    <article class="teaching-entry">
+
+      <div class="teaching-date">
+        Fall 2023
+      </div>
+
+      <div class="teaching-content">
+
+        <span class="teaching-role">Instructor</span>
+
+        <h3 class="teaching-title">
+          College Physics II (PHY 13012)
+        </h3>
+
+        <p class="teaching-institution">
+          Department of Physics,
+          Kent State University,
+          Ohio, USA<br>
+          August 21 – October 15, 2023
+        </p>
+
+        <ul class="teaching-details">
+
+          <li>
+            Served as the instructor for 46 undergraduate
+            students, primarily non-physics majors,
+            teaching a calculus/algebra-based introductory
+            course covering electricity, magnetism,
+            circuits, electromagnetic induction, and
+            electromagnetic waves.
+          </li>
+
+          <li>
+            Independently organized and delivered the
+            course, including 20 lectures, 6 recitation
+            sessions, 7 homework assignments, two midterm
+            examinations, and a final examination,
+            and prepared associated solutions,
+            answer keys, and review materials.
+          </li>
+
+          <li>
+            Developed lecture materials using Microsoft
+            PowerPoint and combined presentation-based
+            instruction with blackboard problem solving,
+            including detailed derivations, worked
+            examples, and real-time explanations
+            in response to student questions.
+          </li>
+
+          <li>
+            Designed and maintained the course through
+            Canvas, using it to organize and distribute
+            relevant materials.
+          </li>
+
+          <li>
+            Held office hours and provided individual
+            assistance to students with conceptual
+            questions and problem-solving difficulties.
+          </li>
+
+          <li>
+            Supervised and guided a teaching assistant
+            assigned to the course: prepared the
+            recitation materials and detailed solutions,
+            provided instructional guidance on conducting
+            the recitation sessions, and coordinated
+            the recitation component with the overall
+            course schedule and lecture content.
+          </li>
+
+        </ul>
+
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         LABORATORY TEACHING ASSISTANT: PHY 13021
+         ===================================================== -->
+
+    <article class="teaching-entry">
+
+      <div class="teaching-date">
+        Fall 2017<br>
+        Spring 2021
+      </div>
+
+      <div class="teaching-content">
+
+        <span class="teaching-role assistant">
+          Laboratory Teaching Assistant
+        </span>
+
+        <h3 class="teaching-title">
+          General College Physics Laboratory I
+          (PHY 13021)
+        </h3>
+
+        <p class="teaching-institution">
+          Department of Physics,
+          Kent State University,
+          Ohio, USA
+        </p>
+
+        <ul class="teaching-details">
+
+          <li>
+            Taught and guided approximately 60
+            undergraduate students per laboratory
+            session in hands-on introductory physics
+            laboratories spanning mechanics,
+            thermodynamics, and waves/sound,
+            connecting physical concepts with
+            experimental observation and quantitative
+            analysis.
+          </li>
+
+          <li>
+            Assisted students with experimental
+            procedures, measurements, data analysis,
+            and interpretation, including the analysis
+            of position-time, velocity-time,
+            acceleration-time, and force data using
+            laboratory instrumentation such as motion
+            detectors and force probes.
+          </li>
+
+          <li>
+            Held office hours to provide additional
+            support with physics concepts,
+            experimental analysis, and laboratory
+            assignments.
+          </li>
+
+          <li>
+            Evaluated pre-lab assignments, quizzes,
+            and laboratory reports using Canvas,
+            providing feedback and maintaining
+            student grades through the
+            learning-management system.
+          </li>
+
+        </ul>
+
+      </div>
+    </article>
+
+
+  </div>
+</div>

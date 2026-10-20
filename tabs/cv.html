@@ -1,4 +1,452 @@
-<!-- CURRICULUM VITAE -->
-<h2 class="section-title">Curriculum Vitae</h2>
 
-<p>CV information will be added here.</p>
+<!-- ============================================================
+     CV TAB — AJAHARUL ISLAM
+     File: tabs/cv.html
+     ============================================================ -->
+
+<div class="academic-cv">
+
+  <style>
+    /* ============================================================
+       CV TAB — SCOPED STYLING
+       ============================================================ */
+
+    .academic-cv {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text, #252525);
+    }
+
+    .academic-cv .cv-section {
+      margin-bottom: 35px;
+    }
+
+    .academic-cv .cv-section-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--primary, #3154b5);
+      margin: 0 0 10px;
+    }
+
+    .academic-cv .cv-entry {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px 22px;
+      padding: 17px 0;
+      border-top: 1px solid var(--border, #e0ddd8);
+    }
+
+    .academic-cv .cv-entry-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin: 0 0 5px;
+    }
+
+    .academic-cv .cv-entry-detail {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted, #77736f);
+      margin: 0;
+    }
+
+    .academic-cv .cv-entry-detail + .cv-entry-detail {
+      margin-top: 4px;
+    }
+
+    .academic-cv .cv-date {
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      white-space: nowrap;
+      color: var(--muted, #77736f);
+      text-align: right;
+    }
+
+    .academic-cv a {
+      color: var(--primary, #3154b5);
+      text-decoration: none;
+    }
+
+    .academic-cv a:hover {
+      text-decoration: underline;
+    }
+
+    .academic-cv .cv-award {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .academic-cv .cv-award .cv-date {
+      text-align: left;
+      color: var(--primary, #3154b5);
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 650px) {
+      .academic-cv .cv-entry {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .academic-cv .cv-date {
+        text-align: left;
+        grid-row: 1;
+      }
+
+      .academic-cv .cv-award {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+    }
+  </style>
+
+
+  <!-- ============================================================
+       01. PROFESSIONAL EXPERIENCE
+       ============================================================ -->
+
+  <section class="cv-section">
+
+    <h2 class="cv-section-title">
+      Professional Experience
+    </h2>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          Postdoctoral Researcher
+        </h3>
+
+        <p class="cv-entry-detail">
+          Institute of Particle Physics,
+          Central China Normal University (CCNU),
+          Wuhan, China
+        </p>
+
+        <p class="cv-entry-detail">
+          Research: Heavy-quarkonium production and dynamics
+          in heavy-ion collisions and at the
+          Electron-Ion Collider (EIC).
+        </p>
+      </div>
+
+      <div class="cv-date">
+        Dec 2024 – Present
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          Research Assistant
+        </h3>
+
+        <p class="cv-entry-detail">
+          Center for Nuclear Research,
+          Department of Physics,
+          Kent State University, Ohio, USA
+        </p>
+
+        <p class="cv-entry-detail">
+          Project: Non-equilibrium Dynamics
+          of the Quark-Gluon Plasma.
+        </p>
+      </div>
+
+      <div class="cv-date">
+        Spring – Summer 2024
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          Research Assistant
+        </h3>
+
+        <p class="cv-entry-detail">
+          Center for Nuclear Research,
+          Department of Physics,
+          Kent State University, Ohio, USA
+        </p>
+
+        <p class="cv-entry-detail">
+          Project: Non-equilibrium Dynamics
+          of the Quark-Gluon Plasma.
+        </p>
+      </div>
+
+      <div class="cv-date">
+        Fall 2021 – Spring 2023
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       02. EDUCATION
+       ============================================================ -->
+
+  <section class="cv-section">
+
+    <h2 class="cv-section-title">
+      Education
+    </h2>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          Ph.D. in Theoretical Nuclear Physics
+        </h3>
+
+        <p class="cv-entry-detail">
+          Kent State University, Ohio, USA
+        </p>
+
+        <p class="cv-entry-detail">
+          Advisor:
+          <a href="https://inspirehep.net/authors/987363"
+             target="_blank"
+             rel="noopener noreferrer">
+            Prof. Michael Strickland
+          </a>
+        </p>
+
+        <p class="cv-entry-detail">
+          Dissertation:
+          <em>
+            Heavy Quarkonium Suppression in the
+            Quark-Gluon Plasma Using Real-time Quantum
+            Field Theory for an Open Quantum System
+          </em>
+          —
+          <a href="https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=kent1720655954009391&amp;disposition=inline"
+             target="_blank"
+             rel="noopener noreferrer">
+            Dissertation ↗
+          </a>
+        </p>
+      </div>
+
+      <div class="cv-date">
+        2019 – 2024
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          M.A. in Physics
+        </h3>
+
+        <p class="cv-entry-detail">
+          Kent State University, Ohio, USA
+        </p>
+      </div>
+
+      <div class="cv-date">
+        2017 – 2019
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          M.Tech. in Nanotechnology
+        </h3>
+
+        <p class="cv-entry-detail">
+          Aligarh Muslim University, India
+        </p>
+      </div>
+
+      <div class="cv-date">
+        2015 – 2017
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          B.Sc.
+        </h3>
+
+        <p class="cv-entry-detail">
+          Aligarh Muslim University, India
+        </p>
+      </div>
+
+      <div class="cv-date">
+        2010 – 2013
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       03. GRANTS & FUNDING (PARTICIPATION)
+       ============================================================ -->
+
+  <section class="cv-section">
+
+    <h2 class="cv-section-title">
+      Grants &amp; Funding (Participation)
+    </h2>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          National Natural Science Foundation of China (NSFC)
+        </h3>
+
+        <p class="cv-entry-detail">
+          Grant No. 12225503
+        </p>
+
+        <p class="cv-entry-detail">
+          Research supported through the postdoctoral
+          appointment at Central China Normal University.
+        </p>
+
+        <p class="cv-entry-detail">
+          Research: Heavy quarkonia in heavy-ion
+          collisions and at the EIC.
+        </p>
+      </div>
+
+      <div class="cv-date">
+        Dec 2024 – Present
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
+        <h3 class="cv-entry-title">
+          U.S. Department of Energy (DOE)
+        </h3>
+
+        <p class="cv-entry-detail">
+          Award No. DE-SC0013470
+        </p>
+
+        <p class="cv-entry-detail">
+          Research supported through research assistant
+          appointments at Kent State University.
+        </p>
+
+        <p class="cv-entry-detail">
+          Project: Non-equilibrium Dynamics
+          of the Quark-Gluon Plasma.
+        </p>
+      </div>
+
+      <div class="cv-date">
+        2021–2023; 2024
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       04. HONORS & AWARDS
+       ============================================================ -->
+
+  <section class="cv-section">
+
+    <h2 class="cv-section-title">
+      Honors &amp; Awards
+    </h2>
+
+    <div class="cv-entry cv-award">
+      <div class="cv-date">
+        2024
+      </div>
+
+      <div>
+        <h3 class="cv-entry-title">
+          GSS International Travel Award (ITA)
+        </h3>
+
+        <p class="cv-entry-detail">
+          Kent State University, USA.
+          Support for attending
+          <a href="https://indico.cern.ch/event/1293041/contributions/5936477/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Confinement XVI ↗
+          </a>,
+          Cairns, Australia.
+        </p>
+      </div>
+    </div>
+
+    <div class="cv-entry cv-award">
+      <div class="cv-date">
+        2022
+      </div>
+
+      <div>
+        <h3 class="cv-entry-title">
+          Air Travel Award
+        </h3>
+
+        <p class="cv-entry-detail">
+          National Nuclear Physics Summer School (NNPSS).
+          Support for attending
+          <a href="https://web.mit.edu/2022nnpss/participants.html"
+             target="_blank"
+             rel="noopener noreferrer">
+            NNPSS 2022 ↗
+          </a>,
+          Massachusetts Institute of Technology,
+          Cambridge, Massachusetts, USA.
+        </p>
+      </div>
+    </div>
+
+    <div class="cv-entry cv-award">
+      <div class="cv-date">
+        2022
+      </div>
+
+      <div>
+        <h3 class="cv-entry-title">
+          GSS Domestic Travel Award (DTA)
+        </h3>
+
+        <p class="cv-entry-detail">
+          Kent State University, USA.
+          Support for attending the APS April Meeting 2022,
+          New York, USA.
+        </p>
+      </div>
+    </div>
+
+    <div class="cv-entry cv-award">
+      <div class="cv-date">
+        2020
+      </div>
+
+      <div>
+        <h3 class="cv-entry-title">
+          Division of Nuclear Physics (DNP) Travel Award
+        </h3>
+
+        <p class="cv-entry-detail">
+          Support for the 2020 APS April Meeting,
+          Washington, DC, USA.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+</div>

@@ -89,11 +89,22 @@
   }
 
   /* Individual publications */
-  .pub-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+  
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: publication;
+}
+
+.pub-entry {
+  counter-increment: publication;
+}
+
+.pub-number::before {
+  content: counter(publication, decimal-leading-zero);
+}
+
 
   .pub-entry {
     display: grid;
@@ -178,7 +189,7 @@
        ===================================================== -->
 
   <div class="pub-topbar">
-    <span><strong>Citations:</strong> 357+</span>
+    <span><strong>Citations:</strong> 357 (Google Scholar)</span>
     <span class="pub-divider">|</span>
 
     <a href="insert link"
@@ -192,7 +203,7 @@
     <a href="https://scholar.google.com/citations?hl=en&amp;user=U4PiHM4AAAAJ"
        target="_blank"
        rel="noopener noreferrer">
-      Google Scholar &rarr;
+      Google Scholar Profile &rarr;
     </a>
   </div>
 
@@ -258,7 +269,7 @@
          ===================================================== -->
 
     <li class="pub-entry">
-      <span class="pub-number">01</span>
+      <span class="pub-number"></span>
       <div>
         <p class="pub-citation">
           <strong>A. Islam</strong>, S. Chen, F. P. Li,
@@ -289,7 +300,7 @@
          ===================================================== -->
 
     <li class="pub-entry">
-      <span class="pub-number">02</span>
+      <span class="pub-number"></span>
       <div>
         <p class="pub-citation">
           <strong>A. Islam</strong>.
@@ -331,7 +342,7 @@
 
       <!-- 2026-prd-dipole-vs-full -->
       <li class="pub-entry">
-        <span class="pub-number">01</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             M. Y. Jamal, <strong>A. Islam</strong>,
@@ -364,7 +375,7 @@
 
       <!-- 2023-prd-regeneration -->
       <li class="pub-entry">
-        <span class="pub-number">02</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             N. Brambilla, M. A. Escobedo,
@@ -399,7 +410,7 @@
 
       <!-- 2022-jhep-statics -->
       <li class="pub-entry">
-        <span class="pub-number">03</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             L. Dong, Y. Guo, <strong>A. Islam</strong>,
@@ -434,7 +445,7 @@
 
       <!-- 2022-jhep-E-over-T -->
       <li class="pub-entry">
-        <span class="pub-number">04</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             N. Brambilla, M. A. Escobedo,
@@ -476,7 +487,7 @@
 
       <!-- 2022-arxiv-qtraj -->
       <li class="pub-entry">
-        <span class="pub-number">05</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             H. B. Omar, M. A. Escobedo,
@@ -505,7 +516,7 @@
 
       <!-- 2021-prd-effective-mD -->
       <li class="pub-entry">
-        <span class="pub-number">06</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             L. Dong, Y. Guo, <strong>A. Islam</strong>,
@@ -539,7 +550,7 @@
 
       <!-- 2021-jhep-hqqd -->
       <li class="pub-entry">
-        <span class="pub-number">07</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             <strong>A. Islam</strong> and M. Strickland.
@@ -571,7 +582,7 @@
 
       <!-- 2020-plb-realtime -->
       <li class="pub-entry">
-        <span class="pub-number">08</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             <strong>A. Islam</strong> and M. Strickland.
@@ -604,7 +615,7 @@
 
       <!-- 2019-prd-adiabatic -->
       <li class="pub-entry">
-        <span class="pub-number">09</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             J. Boyd, T. Cook, <strong>A. Islam</strong>,
@@ -652,7 +663,7 @@
       
 <!-- 2024-pos-australia -->
       <li class="pub-entry">
-        <span class="pub-number">01</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             <strong>A. Islam</strong>, N. Brambilla,
@@ -688,7 +699,7 @@
 
       <!-- 2022-arxiv-hotquarks -->
       <li class="pub-entry">
-        <span class="pub-number">01</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             <strong>A. Islam</strong>.
@@ -714,7 +725,7 @@
       
 <!-- 2022-epj-norway -->
       <li class="pub-entry">
-        <span class="pub-number">02</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             <strong>A. Islam</strong>, L. Dong, Y. Guo,
@@ -763,7 +774,7 @@
     <ol class="pub-list">
 
       <li class="pub-entry">
-        <span class="pub-number">01</span>
+        <span class="pub-number"></span>
         <div>
           <p class="pub-citation">
             <strong>Ajaharul Islam</strong>.
@@ -795,43 +806,3 @@
 
 </div>
 
-
-<!-- =========================================================
-     FILTER INITIALIZATION
-     Handles content dynamically loaded into the main tab.
-     ========================================================= -->
-
-<script>
-  document.querySelectorAll(
-    '#publications-page [data-pub-filter]'
-  ).forEach(function(button) {
-
-    button.addEventListener('click', function() {
-
-      const page = button.closest('.pub-page');
-      const selected = button.dataset.pubFilter;
-
-      page.querySelectorAll('[data-pub-filter]')
-        .forEach(function(item) {
-
-          const active = item === button;
-
-          item.classList.toggle('is-active', active);
-          item.setAttribute(
-            'aria-pressed',
-            String(active)
-          );
-        });
-
-      page.querySelectorAll('[data-pub-group]')
-        .forEach(function(group) {
-
-          group.hidden =
-            selected !== 'all' &&
-            group.dataset.pubGroup !== selected;
-        });
-
-    });
-
-  });
-</script>

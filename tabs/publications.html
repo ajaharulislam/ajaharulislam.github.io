@@ -1,4 +1,838 @@
-<!-- PUBLICATIONS -->
-<h2 class="section-title">Publications</h2>
 
-<p>Publication list will be added here.</p>
+<!-- =========================================================
+     PUBLICATIONS TAB
+     File: tabs/publications.html
+     ========================================================= -->
+
+<style>
+  .pub-page {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #292929;
+    max-width: 100%;
+  }
+
+  .pub-page * {
+    box-sizing: border-box;
+  }
+
+  /* Citation and profile bar */
+  .pub-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    padding: 12px 15px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 12px;
+    margin-bottom: 20px;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .pub-topbar a {
+    color: #244cbd;
+    text-decoration: none;
+  }
+
+  .pub-divider {
+    color: #c7c7c7;
+  }
+
+  /* Publication category filters */
+  .pub-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 0 24px;
+  }
+
+  .pub-filter {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #d6dbe8;
+    color: #4e596d;
+    padding: 8px 11px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .pub-filter:hover {
+    border-color: #385ac7;
+    color: #244cbd;
+  }
+
+  .pub-filter.is-active {
+    background: #3156bd;
+    color: #fff;
+    border-color: #3156bd;
+  }
+
+  /* Publication sections */
+  .pub-group {
+    margin: 0 0 34px;
+  }
+
+  .pub-heading {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: #3156bd;
+    padding: 0 0 11px;
+    border-bottom: 1px solid #d8d8d8;
+    margin: 0 0 2px;
+  }
+
+  /* Individual publications */
+  .pub-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pub-entry {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 12px;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 17px 0;
+    line-height: 1.65;
+    font-size: 13px;
+  }
+
+  .pub-entry:last-child {
+    border-bottom: 0;
+  }
+
+  .pub-number {
+    color: #888;
+    font-family: monospace;
+    font-size: 11px;
+    padding-top: 3px;
+  }
+
+  .pub-citation {
+    margin: 0 0 6px;
+  }
+
+  .pub-citation em {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+  }
+
+  /* arXiv, DOI, and PDF links */
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pub-links a {
+    display: inline-block;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: #eef1ff;
+    color: #3156bd;
+  }
+
+  .pub-links a.pub-doi {
+    color: #168044;
+    background: #eaf7ee;
+  }
+
+  .pub-links a.pub-pdf {
+    color: #7b4a12;
+    background: #fff2df;
+  }
+
+  .pub-links a:hover,
+  .pub-topbar a:hover {
+    text-decoration: underline;
+  }
+
+  .pub-page [hidden] {
+    display: none !important;
+  }
+
+  @media (max-width: 600px) {
+    .pub-entry {
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 8px;
+    }
+  }
+</style>
+
+
+<div class="pub-page" id="publications-page">
+
+  <!-- =====================================================
+       CITATIONS AND ACADEMIC PROFILES
+       ===================================================== -->
+
+  <div class="pub-topbar">
+    <span><strong>Citations:</strong> 357+</span>
+    <span class="pub-divider">|</span>
+
+    <a href="insert link"
+       target="_blank"
+       rel="noopener noreferrer">
+      INSPIRE Profile &rarr;
+    </a>
+
+    <span class="pub-divider">|</span>
+
+    <a href="https://scholar.google.com/citations?hl=en&amp;user=U4PiHM4AAAAJ"
+       target="_blank"
+       rel="noopener noreferrer">
+      Google Scholar &rarr;
+    </a>
+  </div>
+
+
+  <!-- =====================================================
+       PUBLICATION FILTER BUTTONS
+       ===================================================== -->
+
+  <div class="pub-filters" role="group"
+       aria-label="Filter publications">
+
+    <button class="pub-filter is-active"
+            type="button"
+            data-pub-filter="all"
+            aria-pressed="true">
+      All
+    </button>
+
+    <button class="pub-filter"
+            type="button"
+            data-pub-filter="preprints"
+            aria-pressed="false">
+      Preprints
+    </button>
+
+    <button class="pub-filter"
+            type="button"
+            data-pub-filter="journals"
+            aria-pressed="false">
+      Journal Publications
+    </button>
+
+    <button class="pub-filter"
+            type="button"
+            data-pub-filter="proceedings"
+            aria-pressed="false">
+      Conference Proceedings
+    </button>
+
+    <button class="pub-filter"
+            type="button"
+            data-pub-filter="thesis"
+            aria-pressed="false">
+      Ph.D. Thesis
+    </button>
+
+  </div>
+
+
+
+<!-- =====================================================
+     01. PREPRINTS
+     ===================================================== -->
+
+<section class="pub-group" data-pub-group="preprints">
+
+  <h2 class="pub-heading">Preprints</h2>
+
+  <ol class="pub-list">
+
+    <!-- =====================================================
+         PREPRINT ML MD
+         ===================================================== -->
+
+    <li class="pub-entry">
+      <span class="pub-number">01</span>
+      <div>
+        <p class="pub-citation">
+          <strong>A. Islam</strong>, S. Chen, F. P. Li,
+          L. G. Pang, and G. Y. Qin.
+          <em>Bottomonium suppression with a
+          machine-learning-informed Debye mass.</em>
+          
+        </p>
+
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2609.09047"
+             target="_blank" rel="noopener noreferrer">
+            arXiv:2609.09047 [hep-ph]
+          </a>
+
+          <a class="pub-pdf"
+             href="assets/papers/2026-arxiv-ML-mD.pdf"
+             target="_blank" rel="noopener noreferrer">
+            PDF
+          </a>
+        </div>
+      </div>
+    </li>
+
+
+    <!-- =====================================================
+         PREPRINT ANISO HQQD
+         ===================================================== -->
+
+    <li class="pub-entry">
+      <span class="pub-number">02</span>
+      <div>
+        <p class="pub-citation">
+          <strong>A. Islam</strong>.
+          <em>Bottomonium suppression and elliptic flow
+          in an anisotropic quark-gluon plasma using
+          the quantum trajectories method.</em>
+          
+        </p>
+
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2512.13377"
+             target="_blank" rel="noopener noreferrer">
+            arXiv:2512.13377 [hep-ph]
+          </a>
+
+          <a class="pub-pdf"
+             href="assets/papers/2025-arxiv-aniso-hqqd.pdf"
+             target="_blank" rel="noopener noreferrer">
+            PDF
+          </a>
+        </div>
+      </div>
+    </li>
+
+  </ol>
+</section>
+
+
+
+  <!-- =====================================================
+       02. JOURNAL PUBLICATIONS
+       ===================================================== -->
+
+  <section class="pub-group" data-pub-group="journals">
+
+    <h2 class="pub-heading">Journal Publications</h2>
+
+    <ol class="pub-list">
+
+      <!-- 2026-prd-dipole-vs-full -->
+      <li class="pub-entry">
+        <span class="pub-number">01</span>
+        <div>
+          <p class="pub-citation">
+            M. Y. Jamal, <strong>A. Islam</strong>,
+            A. Bandyopadhyay, and S. K. Das.
+            <em>Diffractive Production of Heavy Quarkonia
+            at the Electron Ion Collider.</em>
+            Physical Review D 114, L031504 (2026).
+          </p>
+
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2606.18854"
+               target="_blank" rel="noopener noreferrer">
+              arXiv:2606.18854 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1103/bplx-hsh5"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2026-prd-dipole-vs-full.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2023-prd-regeneration -->
+      <li class="pub-entry">
+        <span class="pub-number">02</span>
+        <div>
+          <p class="pub-citation">
+            N. Brambilla, M. A. Escobedo,
+            <strong>A. Islam</strong>, M. Strickland,
+            A. Tiwari, A. Vairo, and P. V. Griend.
+            <em>Regeneration of bottomonia in an
+            open quantum systems approach.</em>
+            Physical Review D 108, L011502 (2023).
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2302.11826"
+               target="_blank" rel="noopener noreferrer">
+              	arXiv:2302.11826 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1103/PhysRevD.108.L011502"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2023-prd-regeneration.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2022-jhep-statics -->
+      <li class="pub-entry">
+        <span class="pub-number">03</span>
+        <div>
+          <p class="pub-citation">
+            L. Dong, Y. Guo, <strong>A. Islam</strong>,
+            A. Rothkopf, and M. Strickland.
+            <em>The complex heavy-quark potential in an
+            anisotropic quark-gluon plasma — Statics and
+            dynamics.</em>
+            Journal of High Energy Physics 09, 200 (2022).
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2205.10349"
+               target="_blank" rel="noopener noreferrer">
+              		arXiv:2205.10349 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1007/JHEP09(2022)200"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2022-jhep-statics.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2022-jhep-E-over-T -->
+      <li class="pub-entry">
+        <span class="pub-number">04</span>
+        <div>
+          <p class="pub-citation">
+            N. Brambilla, M. A. Escobedo,
+            <strong>A. Islam</strong>, M. Strickland,
+            A. Tiwari, A. Vairo, and P. V. Griend.
+            <em>Heavy quarkonium dynamics at
+            next-to-leading order in the binding energy
+            over temperature.</em>
+            Journal of High Energy Physics 08, 303 (2022); 11 (2025) 079 (erratum)
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2205.10289"
+               target="_blank" rel="noopener noreferrer">
+              arXiv:2205.10289 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1007/JHEP08(2022)303"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2022-jhep-E-over-T.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2022-jhep-E-over-T-erratum.pdf"
+               target="_blank" rel="noopener noreferrer">
+              erratum
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2022-arxiv-qtraj -->
+      <li class="pub-entry">
+        <span class="pub-number">05</span>
+        <div>
+          <p class="pub-citation">
+            H. B. Omar, M. A. Escobedo,
+            <strong>A. Islam</strong>, M. Strickland,
+            S. Thapa, P. V. Griend, and J. H. Weber.
+            <em>QTRAJ 1.0: A Lindblad equation solver
+            for heavy-quarkonium dynamics.</em>
+            Computer Physics Communications 273, 108266 (2022).
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2107.06147"
+               target="_blank" rel="noopener noreferrer">
+              arXiv:2107.06147 [physics.comp-ph]
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2022-arxiv-qtraj.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2021-prd-effective-mD -->
+      <li class="pub-entry">
+        <span class="pub-number">06</span>
+        <div>
+          <p class="pub-citation">
+            L. Dong, Y. Guo, <strong>A. Islam</strong>,
+            and M. Strickland.
+            <em>Effective Debye screening mass in an
+            anisotropic quark gluon plasma.</em>
+            Physical Review D 104, 096017 (2021).
+          </p>
+
+          <div class="pub-links">
+           
+            <a href="https://arxiv.org/abs/2109.01284"
+               target="_blank" rel="noopener noreferrer">
+              	arXiv:2109.01284 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1103/PhysRevD.104.096017"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2021-prd-effective-mD.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2021-jhep-hqqd -->
+      <li class="pub-entry">
+        <span class="pub-number">07</span>
+        <div>
+          <p class="pub-citation">
+            <strong>A. Islam</strong> and M. Strickland.
+            <em>Bottomonium suppression and elliptic flow
+            using Heavy Quarkonium Quantum Dynamics.</em>
+            Journal of High Energy Physics 03, 235 (2021).
+          </p>
+
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2010.05457"
+               target="_blank" rel="noopener noreferrer">
+              arXiv:2010.05457 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1007/JHEP03(2021)235"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2021-jhep-hqqd.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2020-plb-realtime -->
+      <li class="pub-entry">
+        <span class="pub-number">08</span>
+        <div>
+          <p class="pub-citation">
+            <strong>A. Islam</strong> and M. Strickland.
+            <em>Bottomonium suppression and elliptic flow
+            from real-time quantum evolution.</em>
+            Physics Letters B 811, 135949 (2020).
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2007.10211"
+               target="_blank" rel="noopener noreferrer">
+              arXiv:2007.10211 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1016/j.physletb.2020.135949"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2020-plb-realtime.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2019-prd-adiabatic -->
+      <li class="pub-entry">
+        <span class="pub-number">09</span>
+        <div>
+          <p class="pub-citation">
+            J. Boyd, T. Cook, <strong>A. Islam</strong>,
+            and M. Strickland.
+            <em>Heavy quarkonium suppression beyond
+            the adiabatic limit.</em>
+            Physical Review D 100, 076019 (2019).
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/1905.05676"
+               target="_blank" rel="noopener noreferrer">
+              arXiv:1905.05676 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1103/PhysRevD.100.076019"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2019-prd-adiabatic.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+
+  <!-- =====================================================
+       03. CONFERENCE PROCEEDINGS
+       ===================================================== -->
+
+  <section class="pub-group" data-pub-group="proceedings">
+
+    <h2 class="pub-heading">Conference Proceedings</h2>
+
+    <ol class="pub-list">
+      
+<!-- 2024-pos-australia -->
+      <li class="pub-entry">
+        <span class="pub-number">01</span>
+        <div>
+          <p class="pub-citation">
+            <strong>A. Islam</strong>, N. Brambilla,
+            M. A. Escobedo, M. Strickland,
+            A. Vairo, and P. V. Griend.
+            <em>Bottomonium suppression in pNRQCD
+            and open quantum system approach.</em>
+            The XVIth Quark Confinement and the Hadron Spectrum Conference (QCHSC24). 
+            Proceedings of Science QCHSC24 (2025) 162.
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2503.22507"
+               target="_blank" rel="noopener noreferrer">
+              	arXiv:2503.22507 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://pos.sissa.it/483/162"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2024-pos-australia.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2022-arxiv-hotquarks -->
+      <li class="pub-entry">
+        <span class="pub-number">01</span>
+        <div>
+          <p class="pub-citation">
+            <strong>A. Islam</strong>.
+            <em>The complex heavy quark potential in an anisotropic quark-gluon plasma.</em>
+            Hot Quarks 2022.
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2312.07073"
+               target="_blank" rel="noopener noreferrer">
+              	arXiv:2312.07073 [hep-ph]
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2022-arxiv-hotquarks.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+      
+<!-- 2022-epj-norway -->
+      <li class="pub-entry">
+        <span class="pub-number">02</span>
+        <div>
+          <p class="pub-citation">
+            <strong>A. Islam</strong>, L. Dong, Y. Guo,
+            A. Rothkopf, and M. Strickland.
+            <em>The effective complex heavy-quark
+            potential in an anisotropic quark-gluon
+            plasma.</em>
+            XVth Quark Confinement and the Hadron Spectrum Conference.
+            EPJ Web of Conferences 274, 04015 (2022).
+          </p>
+
+          <div class="pub-links">
+            
+            <a href="https://arxiv.org/abs/2210.12102"
+               target="_blank" rel="noopener noreferrer">
+              	arXiv:2210.12102 [hep-ph]
+            </a>
+
+            <a class="pub-doi"
+               href="https://doi.org/10.1051/epjconf/202227404015"
+               target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2022-epj-norway.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+
+  <!-- =====================================================
+       04. PH.D. THESIS
+       ===================================================== -->
+
+  <section class="pub-group" data-pub-group="thesis">
+
+    <h2 class="pub-heading">Ph.D. Thesis</h2>
+
+    <ol class="pub-list">
+
+      <li class="pub-entry">
+        <span class="pub-number">01</span>
+        <div>
+          <p class="pub-citation">
+            <strong>Ajaharul Islam</strong>.
+            <em>Heavy Quarkonium Suppression in the
+            Quark-Gluon Plasma Using Real-time Quantum
+            Field Theory for an Open Quantum System.</em>
+            Ph.D. dissertation,
+            Kent State University (2024).
+          </p>
+
+          <div class="pub-links">
+            <a class="pub-doi"
+               href="http://rave.ohiolink.edu/etdc/view?acc_num=kent1720655954009391"
+               target="_blank" rel="noopener noreferrer">
+              OhioLINK
+            </a>
+
+            <a class="pub-pdf"
+               href="assets/papers/2024-ohiolink-thesis.pdf"
+               target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+</div>
+
+
+<!-- =========================================================
+     FILTER INITIALIZATION
+     Handles content dynamically loaded into the main tab.
+     ========================================================= -->
+
+<script>
+  document.querySelectorAll(
+    '#publications-page [data-pub-filter]'
+  ).forEach(function(button) {
+
+    button.addEventListener('click', function() {
+
+      const page = button.closest('.pub-page');
+      const selected = button.dataset.pubFilter;
+
+      page.querySelectorAll('[data-pub-filter]')
+        .forEach(function(item) {
+
+          const active = item === button;
+
+          item.classList.toggle('is-active', active);
+          item.setAttribute(
+            'aria-pressed',
+            String(active)
+          );
+        });
+
+      page.querySelectorAll('[data-pub-group]')
+        .forEach(function(group) {
+
+          group.hidden =
+            selected !== 'all' &&
+            group.dataset.pubGroup !== selected;
+        });
+
+    });
+
+  });
+</script>
+Does

@@ -240,3 +240,45 @@ document.addEventListener("click", function (event) {
 /* =====================================================
    END: PUBLICATIONS FILTER
    ===================================================== */
+
+
+/* =====================================================
+   BEGIN: TALKS FILTER
+   ===================================================== */
+
+document.addEventListener("click", function (event) {
+
+  const button = event.target.closest(
+    "#talks-page [data-talk-filter]"
+  );
+
+  if (!button) return;
+
+  const page = button.closest("#talks-page");
+  const selected = button.dataset.talkFilter;
+
+  // Update active filter button
+  page.querySelectorAll("[data-talk-filter]").forEach(function (item) {
+
+    const active = item === button;
+
+    item.classList.toggle("is-active", active);
+    item.setAttribute("aria-pressed", String(active));
+
+  });
+
+  // Show only the selected presentation type
+  page.querySelectorAll("[data-talk-type]").forEach(function (entry) {
+
+    entry.hidden =
+      selected !== "all" &&
+      entry.dataset.talkType !== selected;
+
+  });
+
+});
+
+/* =====================================================
+   END: TALKS FILTER
+   ===================================================== */
+

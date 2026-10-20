@@ -48,29 +48,35 @@
     margin: 0 0 24px;
   }
 
-  .pub-filter {
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid #d6dbe8;
-    color: #4e596d;
-    padding: 8px 11px;
-    border-radius: 3px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.035em;
-    text-transform: uppercase;
-  }
 
-  .pub-filter:hover {
-    border-color: #385ac7;
-    color: #244cbd;
-  }
+/* Publication filter buttons */
+.pub-filter {
+  cursor: pointer;
+  background: #edf0fc;
+  border: 1px solid #cbd3f5;
+  color: #3154b5;
+  padding: 8px 11px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
 
-  .pub-filter.is-active {
-    background: #3156bd;
-    color: #fff;
-    border-color: #3156bd;
-  }
+/* Hover effect */
+.pub-filter:hover {
+  background: #dce4ff;
+  border-color: #3154b5;
+  color: #3154b5;
+}
+
+/* Selected button */
+.pub-filter.is-active {
+  background: #3154b5;
+  color: #ffffff;
+  border-color: #3154b5;
+}
+
 
   /* Publication sections */
   .pub-group {
@@ -132,13 +138,19 @@
   }
 
   
-.pub-citation,
-.pub-citation strong,
-.pub-citation em {
+
+/* =====================================================
+   UNIFORM PUBLICATION CITATION TYPOGRAPHY
+   ===================================================== */
+
+.pub-page .pub-citation,
+.pub-page .pub-citation strong,
+.pub-page .pub-citation em {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   line-height: 1.65;
 }
+
 
 
   /* arXiv, DOI, and PDF links */
